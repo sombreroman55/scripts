@@ -31,7 +31,7 @@ set lazyredraw					" redraw only when necessary
 syntax enable					" turn on syntax highlighting
 set background=dark				" background setting
 let g:termcolors=256			" termcolors for colorschemes
-colorscheme gruvbox 			" flavor of the month
+colorscheme material            " flavor of the month
 " }}}
 
 " Status Line -----------------------------------------------------{{{
@@ -67,6 +67,10 @@ set backspace=2					" backspace works as normal
 :inoremap <Right> <nop>
 :nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 :nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+:nnoremap <leader>[ :tabprevious<cr>
+:nnoremap <leader>] :tabnext<cr>
+:nnoremap <leader>{ :tabfirst<cr>
+:nnoremap <leader>} :tablast<cr>
 :onoremap p i(
 " }}}
 
