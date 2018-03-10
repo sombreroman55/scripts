@@ -1,8 +1,6 @@
 " Personal vim configuration file
 " Written by Andrew Roberts, 2017
 
-" welcome message
-:echo '(>^.^<) Nyaa~~'
 
 " Pathogen ------------------------------------------{{{
 set nocompatible
@@ -17,6 +15,7 @@ set number						" show line numbers
 set relativenumber				" show line numbers relative to cursor
 set showcmd                     " show command in bottom bar
 set cursorline                  " highlight current line
+set scrolloff=999
 set wildmenu                    " visual autocomplete for command menu
 set numberwidth=8				" width of line number column
 set shiftround
@@ -30,8 +29,8 @@ set autoindent					" autoindent
 set lazyredraw					" redraw only when necessary
 syntax enable					" turn on syntax highlighting
 set background=dark				" background setting
-let g:termcolors=256			" termcolors for colorschemes
-colorscheme material            " flavor of the month
+let g:solarized_termcolors=256	" termcolors for solarized 
+colorscheme molokai             " flavor of the month
 " }}}
 
 " Status Line -----------------------------------------------------{{{
@@ -94,6 +93,7 @@ augroup wrappers
     autocmd!
     autocmd BufNewFile,BufRead *.html setlocal nowrap
     autocmd BufNewFile,BufRead *.tex setlocal nowrap
+    autocmd BufNewFile,BufRead *.vim setlocal nowrap
 augroup END
 " }}}
 
