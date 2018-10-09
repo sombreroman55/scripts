@@ -12,30 +12,33 @@ filetype plugin indent on
 " }}}
 
 " UI Settings ------------------------------------------{{{
-set number						" show line numbers
-set relativenumber				" show line numbers relative to cursor
-set showcmd                     " show command in bottom bar
-set cursorline                  " highlight current line
+set number						    " show line numbers
+set relativenumber				    " show line numbers relative to cursor
+set showcmd                         " show command in bottom bar
+set cursorline                      " highlight current line
 set scrolloff=999
-set wildmenu                    " visual autocomplete for command menu
-set numberwidth=8				" width of line number column
+set wildmenu                        " visual autocomplete for command menu
+set numberwidth=8				    " width of line number column
 set shiftround
 set shiftwidth=4
-set tabstop=4					" number of visual spaces per tab
-set softtabstop=4				" number of spaces in tab when editing
-set expandtab					" tabs are spaces
-set showmatch                   " show matching brackets
-set matchtime=3					" matching bracket display time
-set autoindent					" autoindent
-set lazyredraw					" redraw only when necessary
-syntax enable					" turn on syntax highlighting
-set background=dark 			" background setting
-set tabpagemax=100              " maximum open tabs
-let g:solarized_termcolors=256	" termcolors for solarized 
-let g:tex_flavor='latex'        " prefer LaTeX as default tex file
-let t_Co=256                    " set termcolors to 256
-colorscheme zenburn             " flavor of the month
+set tabstop=4					    " number of visual spaces per tab
+set softtabstop=4				    " number of spaces in tab when editing
+set expandtab					    " tabs are spaces
+set showmatch                       " show matching brackets
+set matchtime=3					    " matching bracket display time
+set autoindent					    " autoindent
+set lazyredraw					    " redraw only when necessary
+syntax enable					    " turn on syntax highlighting
+set background=dark                 " background setting
+set tabpagemax=100                  " maximum open tabs
+let g:solarized_termcolors=256	    " termcolors for solarized 
+let g:tex_flavor='latex'            " prefer LaTeX as default tex file
+colorscheme gruvbox                 "flavor of the month
 highlight ColorColumn ctermbg=50
+
+" set termcolors to 256
+" See vim.wikia.com/wiki/256_colors_in_vim for more info
+set t_Co=256
 " }}}
 
 " Status Line -----------------------------------------------------{{{
@@ -43,7 +46,7 @@ highlight ColorColumn ctermbg=50
 " }}}
 
 " Airline --------------------------------------------{{{
-let g:airline_theme='zenburn'
+" let g:airline_theme='zenburn'
 " }}}
 
 " Control settings --------------------------------------{{{
@@ -94,7 +97,7 @@ augroup END
 augroup comments
     autocmd!
     autocmd FileType c          nnoremap <buffer> <localleader>c I/* <esc>A */<esc>
-    autocmd FileType c++        nnoremap <buffer> <localleader>c I// <esc>
+    autocmd FileType cpp        nnoremap <buffer> <localleader>c I// <esc>
     autocmd FileType javascript nnoremap <buffer> <localleader>c I// <esc>
     autocmd FileType python     nnoremap <buffer> <localleader>c I# <esc>
 augroup END
@@ -110,14 +113,17 @@ augroup END
 " Change tab/indent sizes based on filetype
 augroup indentation
     autocmd!
-    autocmd Filetype html setlocal ts=2 sw=2 expandtab
-    autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+    autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd Filetype cpp setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd Filetype make setlocal noexpandtab
 augroup END
 
 " Set color column ruler on file type
 augroup limits
     autocmd!
     autocmd Filetype python setlocal colorcolumn=80
+    autocmd Filetype cpp setlocal colorcolumn=81
     autocmd Filetype html,tex,latex setlocal colorcolumn=101
 augroup END
 " }}}
