@@ -34,7 +34,7 @@ set tabpagemax=100              " maximum open tabs
 let g:solarized_termcolors=256	" termcolors for solarized 
 let g:tex_flavor='latex'        " prefer LaTeX as default tex file
 let t_Co=256                    " set termcolors to 256
-colorscheme zenburn             " flavor of the month
+colorscheme gruvbox             " flavor of the month
 highlight ColorColumn ctermbg=50
 " }}}
 
@@ -43,7 +43,7 @@ highlight ColorColumn ctermbg=50
 " }}}
 
 " Airline --------------------------------------------{{{
-let g:airline_theme='zenburn'
+" let g:airline_theme='gruvbox'
 " }}}
 
 " Control settings --------------------------------------{{{
@@ -94,7 +94,7 @@ augroup END
 augroup comments
     autocmd!
     autocmd FileType c          nnoremap <buffer> <localleader>c I/* <esc>A */<esc>
-    autocmd FileType c++        nnoremap <buffer> <localleader>c I// <esc>
+    autocmd FileType cpp        nnoremap <buffer> <localleader>c I// <esc>
     autocmd FileType javascript nnoremap <buffer> <localleader>c I// <esc>
     autocmd FileType python     nnoremap <buffer> <localleader>c I# <esc>
 augroup END
@@ -110,15 +110,17 @@ augroup END
 " Change tab/indent sizes based on filetype
 augroup indentation
     autocmd!
-    autocmd Filetype html setlocal ts=2 sw=2 expandtab
-    autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+    autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd Filetype cpp setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd Filetype make setlocal noexpandtab
 augroup END
 
 " Set color column ruler on file type
 augroup limits
     autocmd!
     autocmd Filetype python setlocal colorcolumn=80
-    autocmd Filetype html,tex,latex setlocal colorcolumn=101
+    autocmd Filetype html,tex,latex,markdown setlocal colorcolumn=101
 augroup END
 " }}}
 
