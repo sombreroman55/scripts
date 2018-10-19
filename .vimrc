@@ -22,6 +22,7 @@ set shiftround
 set shiftwidth=4
 set tabstop=4					" number of visual spaces per tab
 set softtabstop=4				" number of spaces in tab when editing
+set cinoptions+=t0
 set expandtab					" tabs are spaces
 set showmatch                   " show matching brackets
 set matchtime=3					" matching bracket display time
@@ -30,7 +31,8 @@ set lazyredraw					" redraw only when necessary
 syntax enable					" turn on syntax highlighting
 set background=dark				" background setting
 let g:solarized_termcolors=256	" termcolors for solarized 
-colorscheme molokai             " flavor of the month
+set t_Co=256
+colorscheme gruvbox             " flavor of the month
 " }}}
 
 " Status Line -----------------------------------------------------{{{
@@ -55,6 +57,7 @@ set backspace=2					" backspace works as normal
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 :inoremap jk <esc>
+:inoremap JK <esc>
 :inoremap <esc> <nop>
 :nnoremap <Up> <nop>
 :nnoremap <Down> <nop>
@@ -70,6 +73,7 @@ set backspace=2					" backspace works as normal
 :nnoremap <leader>] :tabnext<cr>
 :nnoremap <leader>{ :tabfirst<cr>
 :nnoremap <leader>} :tablast<cr>
+:nnoremap <leader><TAB> :normal gg=G<cr>
 :onoremap p i(
 " }}}
 
