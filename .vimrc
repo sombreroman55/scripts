@@ -1,5 +1,6 @@
 " Personal vim configuration file
-" Written by Andrew Roberts, 2017
+" Created by Andrew Roberts, 2017
+" Last updated: September 21, 2018
 
 
 " Pathogen ------------------------------------------{{{
@@ -11,28 +12,33 @@ filetype plugin indent on
 " }}}
 
 " UI Settings ------------------------------------------{{{
-set number						" show line numbers
-set relativenumber				" show line numbers relative to cursor
-set showcmd                     " show command in bottom bar
-set cursorline                  " highlight current line
+set number						    " show line numbers
+set relativenumber				    " show line numbers relative to cursor
+set showcmd                         " show command in bottom bar
+set cursorline                      " highlight current line
 set scrolloff=999
-set wildmenu                    " visual autocomplete for command menu
-set numberwidth=8				" width of line number column
+set wildmenu                        " visual autocomplete for command menu
+set numberwidth=8				    " width of line number column
 set shiftround
 set shiftwidth=4
-set tabstop=4					" number of visual spaces per tab
-set softtabstop=4				" number of spaces in tab when editing
-set cinoptions+=t0
-set expandtab					" tabs are spaces
-set showmatch                   " show matching brackets
-set matchtime=3					" matching bracket display time
-set autoindent					" autoindent
-set lazyredraw					" redraw only when necessary
-syntax enable					" turn on syntax highlighting
-set background=dark				" background setting
-let g:solarized_termcolors=256	" termcolors for solarized 
+set tabstop=4					    " number of visual spaces per tab
+set softtabstop=4				    " number of spaces in tab when editing
+set expandtab					    " tabs are spaces
+set showmatch                       " show matching brackets
+set matchtime=3					    " matching bracket display time
+set autoindent					    " autoindent
+set lazyredraw					    " redraw only when necessary
+syntax enable					    " turn on syntax highlighting
+set background=dark                 " background setting
+set tabpagemax=100                  " maximum open tabs
+let g:solarized_termcolors=256	    " termcolors for solarized 
+let g:tex_flavor='latex'            " prefer LaTeX as default tex file
+colorscheme gruvbox                 "flavor of the month
+highlight ColorColumn ctermbg=50
+
+" set termcolors to 256
+" See vim.wikia.com/wiki/256_colors_in_vim for more info
 set t_Co=256
-colorscheme gruvbox             " flavor of the month
 " }}}
 
 " Status Line -----------------------------------------------------{{{
@@ -40,7 +46,7 @@ colorscheme gruvbox             " flavor of the month
 " }}}
 
 " Airline --------------------------------------------{{{
-let g:airline_theme='tomorrow'
+" let g:airline_theme='zenburn'
 " }}}
 
 " Control settings --------------------------------------{{{
@@ -73,23 +79,27 @@ set backspace=2					" backspace works as normal
 :nnoremap <leader>] :tabnext<cr>
 :nnoremap <leader>{ :tabfirst<cr>
 :nnoremap <leader>} :tablast<cr>
-:nnoremap <leader><TAB> :normal gg=G<cr>
-:onoremap p i(
+:nnoremap <leader><Tab> :normal gg=G<cr>
+:nnoremap <C-j> <C-W>j
+:nnoremap <C-k> <C-W>k
+:nnoremap <C-h> <C-W>h
+:nnoremap <C-l> <C-W>l
 " }}}
 
 " Autocommands --------------------------------------{{{
 " Allow code folding in this vim file
 augroup filetype_vim
-	autocmd!
-	autocmd Filetype vim setlocal foldmethod=marker
+    autocmd!
+    autocmd Filetype vim setlocal foldmethod=marker
 augroup END
 
 " Quick comment commands based on programming language of file
 augroup comments
-	autocmd!
-	autocmd FileType c          nnoremap <buffer> <localleader>c I//<esc>
-    autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
-	autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
+    autocmd!
+    autocmd FileType c          nnoremap <buffer> <localleader>c I/* <esc>A */<esc>
+    autocmd FileType cpp        nnoremap <buffer> <localleader>c I// <esc>
+    autocmd FileType javascript nnoremap <buffer> <localleader>c I// <esc>
+    autocmd FileType python     nnoremap <buffer> <localleader>c I# <esc>
 augroup END
 
 " Set specific file types to not wrap their text
@@ -99,6 +109,34 @@ augroup wrappers
     autocmd BufNewFile,BufRead *.tex setlocal nowrap
     autocmd BufNewFile,BufRead *.vim setlocal nowrap
 augroup END
+
+" Change tab/indent sizes based on filetype
+augroup indentation
+    autocmd!
+    autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd Filetype cpp setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd Filetype make setlocal noexpandtab
+augroup END
+
+" Set color column ruler on file type
+augroup limits
+    autocmd!
+    autocmd Filetype python setlocal colorcolumn=80
+    autocmd Filetype html,tex,latex,markdown setlocal colorcolumn=101
+augroup END
+" }}}
+
+" Functions -----------------------------{{{
+" Show highlighting groups for current word
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 
+    \       'synIDattr(v:val, "name")')
+endfunc
 " }}}
 
 " Backups -------------------------------------------------------{{{
