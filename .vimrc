@@ -12,30 +12,33 @@ filetype plugin indent on
 " }}}
 
 " UI Settings ------------------------------------------{{{
-set number						" show line numbers
-set relativenumber				" show line numbers relative to cursor
-set showcmd                     " show command in bottom bar
-set cursorline                  " highlight current line
+set number						    " show line numbers
+set relativenumber				    " show line numbers relative to cursor
+set showcmd                         " show command in bottom bar
+set cursorline                      " highlight current line
 set scrolloff=999
-set wildmenu                    " visual autocomplete for command menu
-set numberwidth=8				" width of line number column
+set wildmenu                        " visual autocomplete for command menu
+set numberwidth=8				    " width of line number column
 set shiftround
 set shiftwidth=4
-set tabstop=4					" number of visual spaces per tab
-set softtabstop=4				" number of spaces in tab when editing
-set expandtab					" tabs are spaces
-set showmatch                   " show matching brackets
-set matchtime=3					" matching bracket display time
-set autoindent					" autoindent
-set lazyredraw					" redraw only when necessary
-syntax enable					" turn on syntax highlighting
-set background=dark 			" background setting
-set tabpagemax=100              " maximum open tabs
-let g:solarized_termcolors=256	" termcolors for solarized 
-let g:tex_flavor='latex'        " prefer LaTeX as default tex file
-let t_Co=256                    " set termcolors to 256
-colorscheme gruvbox             " flavor of the month
+set tabstop=4					    " number of visual spaces per tab
+set softtabstop=4				    " number of spaces in tab when editing
+set expandtab					    " tabs are spaces
+set showmatch                       " show matching brackets
+set matchtime=3					    " matching bracket display time
+set autoindent					    " autoindent
+set lazyredraw					    " redraw only when necessary
+syntax enable					    " turn on syntax highlighting
+set background=dark                 " background setting
+set tabpagemax=100                  " maximum open tabs
+let g:solarized_termcolors=256	    " termcolors for solarized 
+let g:tex_flavor='latex'            " prefer LaTeX as default tex file
+colorscheme gruvbox                 "flavor of the month
 highlight ColorColumn ctermbg=50
+
+" set termcolors to 256
+" See vim.wikia.com/wiki/256_colors_in_vim for more info
+set t_Co=256
 " }}}
 
 " Status Line -----------------------------------------------------{{{
@@ -43,7 +46,7 @@ highlight ColorColumn ctermbg=50
 " }}}
 
 " Airline --------------------------------------------{{{
-" let g:airline_theme='gruvbox'
+" let g:airline_theme='zenburn'
 " }}}
 
 " Control settings --------------------------------------{{{
