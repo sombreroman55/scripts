@@ -125,8 +125,7 @@ augroup END
 augroup limits
     autocmd!
     autocmd Filetype python setlocal colorcolumn=80
-    autocmd Filetype cpp setlocal colorcolumn=81
-    autocmd Filetype html,tex,latex setlocal colorcolumn=101
+    autocmd Filetype html,tex,latex,markdown setlocal colorcolumn=101
 augroup END
 " }}}
 
