@@ -9,6 +9,7 @@ filetype off
 execute pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
+syntax on
 " }}}
 
 " UI Settings ------------------------------------------{{{
@@ -33,7 +34,8 @@ set background=dark                 " background setting
 set tabpagemax=100                  " maximum open tabs
 let g:solarized_termcolors=256	    " termcolors for solarized 
 let g:tex_flavor='latex'            " prefer LaTeX as default tex file
-colorscheme gruvbox                 "flavor of the month
+colorscheme zenburn                 " flavor of the month
+set colorcolumn=81                  " prefer 80 character line limit
 highlight ColorColumn ctermbg=50
 
 " set termcolors to 256
@@ -46,7 +48,7 @@ set t_Co=256
 " }}}
 
 " Airline --------------------------------------------{{{
-" let g:airline_theme='zenburn'
+ let g:airline_theme='zenburn'
 " }}}
 
 " Control settings --------------------------------------{{{
