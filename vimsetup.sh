@@ -5,7 +5,7 @@
 # Last Updated: 26 October, 2018
 
 # Set up symbolic link to .vimrc in home directory
-ln -sf .vimrc ~/.vimrc
+ln -rsf ./.vimrc ~/.vimrc
 
 # Load in colors from git repository, cleanup when finished
 git clone https://github.com/flazz/vim-colorschemes
@@ -18,6 +18,6 @@ cd ..
 rm -rf ./vim-colorschemes
 
 # Download and setup Pathogen
-mmkdir -p ~/.vim/autoload ~/.vim/bundle && \
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
