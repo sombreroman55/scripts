@@ -34,9 +34,9 @@ set background=dark                 " background setting
 set tabpagemax=100                  " maximum open tabs
 let g:solarized_termcolors=256	    " termcolors for solarized 
 let g:tex_flavor='latex'            " prefer LaTeX as default tex file
-colorscheme zenburn                 " flavor of the month
+colorscheme gruvbox                 " flavor of the month
 set colorcolumn=81                  " prefer 80 character line limit
-highlight ColorColumn ctermbg=50
+highlight ColorColumn ctermbg=5
 
 " set termcolors to 256
 " See vim.wikia.com/wiki/256_colors_in_vim for more info
@@ -125,7 +125,12 @@ augroup END
 augroup limits
     autocmd!
     autocmd Filetype python setlocal colorcolumn=80
-    autocmd Filetype html,tex,latex,markdown setlocal colorcolumn=101
+    autocmd Filetype html,tex,latex,markdown,text setlocal colorcolumn=101
+augroup END
+
+augroup widths
+    autocmd!
+    autocmd Filetype text setlocal textwidth=100
 augroup END
 " }}}
 
